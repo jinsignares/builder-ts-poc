@@ -1,0 +1,722 @@
+/* ─── Hero Section ─────────────────────────────────────────────── */
+
+.hero {
+  background: #0e3f3a;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Text Content ─────────────────────────────────────────────── */
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 100px 235px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.headlines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 970px;
+  width: 100%;
+}
+
+.heroTitle {
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: normal;
+  text-align: center;
+  margin: 0;
+  max-width: 964px;
+}
+
+.titleWhite {
+  color: #fff;
+}
+
+.titleGold {
+  color: #f6b725;
+}
+
+.heroSubtitle {
+  color: #fff;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  max-width: 768px;
+  margin: 0;
+}
+
+/* ─── CTA Buttons ──────────────────────────────────────────────── */
+
+.ctaButtons {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.btnDemo {
+  display: flex;
+  height: 56px;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #f6b725;
+  color: #0e3f3a;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.btnDemo:hover {
+  opacity: 0.9;
+}
+
+.btnTour {
+  display: flex;
+  height: 56px;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #1c7e74;
+  color: #fff;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.btnTour:hover {
+  opacity: 0.9;
+}
+
+/* ─── Product Illustration ─────────────────────────────────────── */
+
+.illustration {
+  position: relative;
+  width: 1259px;
+  height: 540px;
+  margin: -20px auto 0;
+  /* shift left by 76px to match Figma layout */
+  left: -38px;
+}
+
+/* Dashed curved connector path */
+.connectorPath {
+  position: absolute;
+  left: 138px;
+  top: 70px;
+  width: 981px;
+  height: 419px;
+}
+
+/* ─── Employee Avatar (left) ───────────────────────────────────── */
+
+.employeeAvatar {
+  position: absolute;
+  left: 36px;
+  top: 12px;
+  width: 165px;
+  height: 165px;
+}
+
+.avatarCircle {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  border: 2.3px solid #fff;
+  background: #bfdbd8;
+  box-shadow: 1.15px 2.3px 13.8px rgba(95, 99, 104, 0.16),
+    0 4.6px 18.4px rgba(95, 99, 104, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.employeePhoto {
+  position: absolute;
+  width: 173px;
+  height: 251px;
+  left: -4px;
+  top: -31px;
+  object-fit: cover;
+}
+
+/* ─── Sick Message Bubble ──────────────────────────────────────── */
+
+.sickBubble {
+  position: absolute;
+  left: 92px;
+  top: 154px;
+  display: inline-flex;
+  padding: 8px 14px;
+  align-items: center;
+  border-radius: 23px;
+  background: #0078ff;
+  color: #fff;
+  font-family: "SF Pro Text", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 125%;
+  white-space: nowrap;
+}
+
+/* ─── TeamSense Automated Response ────────────────────────────── */
+
+.systemResponse {
+  position: absolute;
+  left: 119px;
+  top: 255px;
+  width: 227px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.responseLabel {
+  color: #fff;
+  font-family: "SF Pro Text", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 125%;
+  margin: 0;
+}
+
+.responseCard {
+  background: #fafafa;
+  border-radius: 11px;
+  padding: 11px;
+  box-shadow: 2px 4px 12px rgba(95, 99, 104, 0.16),
+    0 8px 32px rgba(95, 99, 104, 0.04);
+}
+
+.responseText {
+  color: #000;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 125%;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.responseLink {
+  text-decoration: underline;
+}
+
+/* ─── Paper Plane Icon ─────────────────────────────────────────── */
+
+.paperPlane {
+  position: absolute;
+  left: 295px;
+  top: 412px;
+  width: 56px;
+  height: 54px;
+  transform: rotate(11.69deg);
+}
+
+/* ─── Center Dashboard Mockup ──────────────────────────────────── */
+
+.centerMockup {
+  position: absolute;
+  left: 424px;
+  top: 79px;
+  width: 382px;
+  height: 457px;
+}
+
+.mockupCircleBg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 382px;
+  height: 457px;
+  border-radius: 205px;
+  object-fit: cover;
+}
+
+.mockupUI {
+  position: absolute;
+  left: 65px;
+  top: 82px;
+  width: 253px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mockupCard {
+  width: 253px;
+  background: #fff;
+  border-radius: 12.64px 12.64px 0 0;
+  padding: 21.57px 10.785px 10.785px;
+  display: flex;
+  flex-direction: column;
+  gap: 10.785px;
+}
+
+.mockupGreeting {
+  align-self: stretch;
+  color: #0e3f3a;
+  text-align: center;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.57px;
+  letter-spacing: 0.337px;
+  margin: 0;
+}
+
+/* Attendance Points Card */
+.attendanceCard {
+  display: flex;
+  width: 231px;
+  padding: 13.5px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 5.4px;
+  border: 0.674px solid #dfe2e1;
+  background: #fff;
+}
+
+.attendanceTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.attendanceLeft {
+  display: flex;
+  align-items: center;
+  gap: 6.7px;
+}
+
+.pointsNumber {
+  color: #000;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 21.57px;
+  letter-spacing: 0.337px;
+}
+
+.warningPill {
+  display: flex;
+  padding: 2.7px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 32px;
+  background: #fff6d8;
+  color: #6b5303;
+  text-align: center;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 10.785px;
+  letter-spacing: 0.337px;
+}
+
+.attendanceLabel {
+  color: #0e3f3a;
+  text-align: center;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 13.5px;
+  letter-spacing: 0.337px;
+  margin: 0;
+}
+
+.attendanceDate {
+  color: #767e7d;
+  text-align: center;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 10.785px;
+  letter-spacing: 0.337px;
+  margin: 0;
+}
+
+.pointsSliderTrack {
+  height: 16px;
+  align-self: stretch;
+  border-radius: 2.7px;
+  border: 0.674px solid #bfc5c4;
+  background: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.pointsSliderFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 51%; /* 5 of 10 points = 51% */
+  height: 100%;
+  border-radius: 2.7px;
+  background: #ffd13b;
+  mix-blend-mode: multiply;
+}
+
+/* Dashboard action buttons */
+.reportAbsenceBtn {
+  display: flex;
+  width: 231px;
+  height: 32px;
+  padding: 8px 8px 8px 10.785px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background: #1c7e74;
+  color: #fff;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 13.5px;
+  letter-spacing: 0.337px;
+}
+
+.viewHistoryBtn {
+  display: flex;
+  width: 231px;
+  height: 32px;
+  padding: 8px 8px 8px 10.785px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background: #dfedec;
+  color: #145851;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 13.5px;
+  letter-spacing: 0.337px;
+}
+
+.absenceOccurrences {
+  width: 253px;
+  height: 122px;
+  border-radius: 0 0 12.64px 12.64px;
+  border-top: 0.674px solid #bfdbd8;
+  display: block;
+}
+
+/* ─── Supervisor Avatar (right) ────────────────────────────────── */
+
+.supervisorAvatar {
+  position: absolute;
+  left: 1002px;
+  top: 0;
+  width: 194px;
+  height: 194px;
+}
+
+.supervisorCircle {
+  width: 194px;
+  height: 194px;
+  border-radius: 50%;
+  border: 2.7px solid #fff;
+  background: #bfdbd8;
+  box-shadow: 2px 4px 24px rgba(95, 99, 104, 0.16),
+    0 8px 32px rgba(95, 99, 104, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.supervisorPhoto {
+  position: absolute;
+  width: 196px;
+  height: 287px;
+  left: 23px;
+  top: -94px;
+  object-fit: cover;
+}
+
+/* ─── TeamSense Push Notification ─────────────────────────────── */
+
+.notificationCard {
+  position: absolute;
+  left: 833px;
+  top: 225px;
+  display: flex;
+  width: 290px;
+  padding: 10.87px 12.24px 12px 7.87px;
+  align-items: flex-start;
+  gap: 7px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 2px 4px 12px rgba(95, 99, 104, 0.16),
+    0 8px 32px rgba(95, 99, 104, 0.04);
+  overflow: hidden;
+}
+
+.notifIconWrapper {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+}
+
+.notifIconBg {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: #1c7e74;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifInitial {
+  color: #fff;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.notifStatusDot {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #5cf777 0%, #0ebc29 100%);
+}
+
+.notifBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1px;
+  flex: 1;
+}
+
+.notifHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.notifSender {
+  color: #222;
+  font-family: "SF Pro Text", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.26px;
+}
+
+.notifTime {
+  color: #3f3f3f;
+  text-align: right;
+  font-family: "SF Pro", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 510;
+  line-height: 12px;
+  letter-spacing: -0.21px;
+  opacity: 0.5;
+}
+
+.notifMessage {
+  color: #000;
+  font-family: "SF Pro Text", -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17.8px;
+  letter-spacing: -0.24px;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.notifLink {
+  text-decoration: underline;
+}
+
+/* ─── Synced to ADP Pill ───────────────────────────────────────── */
+
+.adpSyncPill {
+  position: absolute;
+  left: 983px;
+  top: 347px;
+  display: flex;
+  width: 209px;
+  height: 54px;
+  padding: 12px 16px 12px 14px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background: #1c7e74;
+}
+
+.syncedLabel {
+  color: #eff6f5;
+  text-align: center;
+  font-family: Urbanist, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+}
+
+.adpLogo {
+  width: 53px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive: Large Tablet (≤1200px) ──────────────────────── */
+
+@media (max-width: 1200px) {
+  .heroContent {
+    padding: 80px 80px 0;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .illustration {
+    transform: scale(0.78);
+    transform-origin: top center;
+    margin-top: -60px;
+    margin-bottom: -120px;
+  }
+}
+
+/* ─── Responsive: Tablet (≤900px) ─────────────────────────────── */
+
+@media (max-width: 900px) {
+  .heroContent {
+    padding: 64px 40px 0;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroSubtitle {
+    font-size: 16px;
+  }
+
+  .illustration {
+    transform: scale(0.6);
+    transform-origin: top center;
+    margin-top: -80px;
+    margin-bottom: -215px;
+  }
+}
+
+/* ─── Responsive: Mobile (≤768px) ─────────────────────────────── */
+
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 56px 24px 32px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroSubtitle {
+    font-size: 16px;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .btnDemo,
+  .btnTour {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Show only the center dashboard mockup, hide everything else */
+  .illustration {
+    position: relative;
+    width: 100%;
+    height: 370px;
+    margin: 16px auto 0;
+    left: 0;
+    transform: none;
+  }
+
+  .connectorPath,
+  .employeeAvatar,
+  .sickBubble,
+  .systemResponse,
+  .paperPlane,
+  .supervisorAvatar,
+  .notificationCard,
+  .adpSyncPill {
+    display: none;
+  }
+
+  /* Centre and scale the dashboard mockup */
+  .centerMockup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) scale(0.8);
+    transform-origin: top center;
+  }
+}
+
+/* ─── Responsive: Small Mobile (≤480px) ───────────────────────── */
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding: 48px 20px 28px;
+  }
+
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .heroSubtitle {
+    font-size: 15px;
+  }
+
+  .illustration {
+    height: 310px;
+  }
+
+  .centerMockup {
+    transform: translateX(-50%) scale(0.65);
+  }
+}

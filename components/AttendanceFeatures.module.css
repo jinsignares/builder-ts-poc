@@ -1,0 +1,189 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 80px 98px;
+  border-radius: 24px;
+  background: #eff6f5;
+  width: 100%;
+  max-width: 1166px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 768px;
+}
+
+.heading {
+  color: #0a2c29;
+  text-align: center;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  align-self: stretch;
+}
+
+.subheading {
+  color: #595f5e;
+  text-align: center;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  align-self: stretch;
+}
+
+/* Tab Navigation */
+.tabNav {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tabLabel {
+  color: #0a2c29;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.tabUnderline {
+  display: block;
+  align-self: stretch;
+  height: 4px;
+  border-radius: 2px;
+  background: #dfedec;
+  transition: background 0.2s ease;
+}
+
+.tabActive .tabUnderline {
+  background: #1c7e74;
+}
+
+/* Content Area */
+.contentArea {
+  position: relative;
+  width: 720px;
+  height: 488px;
+}
+
+.overlayShape {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 384px;
+  height: 453px;
+  background-image: url('https://api.builder.io/api/v1/image/assets/TEMP/acaf3b08d3f8c11e6aaf8e13bf130785b599073f?width=768');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+.diagramWrapper {
+  position: absolute;
+  left: 240px;
+  top: 0;
+  width: 480px;
+  height: 488px;
+  mix-blend-mode: multiply;
+  overflow: hidden;
+}
+
+.diagramImage {
+  position: absolute;
+  left: -244px;
+  top: 7px;
+  width: 717px;
+  height: 469px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 60px 48px;
+  }
+
+  .contentArea {
+    width: 100%;
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  .tabNav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tab {
+    flex: 1 0 40%;
+  }
+
+  .tabLabel {
+    font-size: 14px;
+  }
+
+  .contentArea {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .overlayShape {
+    width: 55%;
+    height: 100%;
+    top: 0;
+  }
+
+  .diagramWrapper {
+    left: 35%;
+    width: 65%;
+    height: 100%;
+  }
+
+  .diagramImage {
+    left: -30%;
+    top: 0;
+    width: 130%;
+    height: 100%;
+  }
+}

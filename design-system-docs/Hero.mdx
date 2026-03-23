@@ -1,0 +1,147 @@
+# Hero
+
+## Overview
+
+### Purpose
+A full-width hero banner for the Josh Accessories fashion e-commerce site. It renders a background lifestyle photograph, a large branded title, and a "Shop Now" call-to-action button. The component is fully responsive — it adapts its height and typography across desktop, tablet, and mobile breakpoints.
+
+### When to Use
+- Place at the top of a landing or category page, directly below the `Navbar`, to create a strong first impression.
+- Use when the page needs a visually prominent section that communicates the brand and drives users toward a primary action.
+- Combine with `Navbar` and `Footer` to form the complete page chrome for the Josh Accessories storefront.
+
+### Architecture
+**Self-contained** — `Hero` has no props, no internal state, and no dependencies on other components. All content (image, title, button text, and href) is hard-coded inside the component. Styling is scoped via CSS Modules (`Hero.module.css`).
+
+---
+
+## API
+
+```tsx
+// No props — the component is self-contained.
+export default function Hero(): JSX.Element
+```
+
+| Aspect | Detail |
+|---|---|
+| **Props** | None |
+| **State** | None |
+| **Dependencies** | `next/image` |
+| **CSS** | `Hero.module.css` (CSS Modules, scoped) |
+| **Provides** | Nothing — standalone, no context exported |
+
+**Internal structure**
+
+| Element | Class | Description |
+|---|---|---|
+| `<section>` | `.hero` | Outer container; sets height, border-radius, and `position: relative` |
+| `<Image>` | `.heroBg` | Next.js fill image; `object-fit: cover` over the full section |
+| Content wrapper | `.heroContent` | Absolutely positioned flex column; right-aligned on desktop, centered on mobile |
+| `<h1>` | `.heroTitle` | "JOSH ACCESSORIES" in white Poppins, 34 px, 600 weight, wide letter-spacing |
+| `<a>` | `.heroBtn` | "Shop Now" link; white background, black text, Poppins 15 px |
+
+**Responsive breakpoints**
+
+| Breakpoint | Height | Title size | Notes |
+|---|---|---|---|
+| Desktop (> 768 px) | 588 px | 34 px | Content right-aligned |
+| Tablet (≤ 768 px) | 260 px | 20 px | Content centered, border-radius reduced |
+| Mobile (≤ 480 px) | 220 px | 16 px | Further reduced type scale |
+
+---
+
+## Usage Examples
+
+### Basic usage
+
+```tsx
+import Hero from "@/components/Hero";
+
+export default function Page() {
+  return (
+    <>
+      <Hero />
+      {/* rest of page content */}
+    </>
+  );
+}
+```
+
+### Standard page layout
+
+```tsx
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+
+export default function HomePage() {
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <main>{/* product grid, etc. */}</main>
+      <Footer />
+    </div>
+  );
+}
+```
+
+---
+
+## Best Practices
+
+### Usage Guidelines
+- Always render `Hero` directly below `Navbar` so the visual flow from navigation into the hero image feels natural.
+- Do not wrap `Hero` in a container with `max-width` set below 100% — the banner is designed to be full-width.
+- Replace the `href="#"` on the "Shop Now" button with the actual category or product page URL before going to production.
+- Swap the hard-coded image `src` for a CMS-driven or environment-specific URL when the image needs to change per campaign.
+
+### Accessibility
+- The background `<Image>` has `alt=""` because it is decorative — the title conveys the same information. Preserve this empty alt when the image is purely visual.
+- The "Shop Now" `<a>` tag is keyboard-focusable by default. Ensure the linked destination is meaningful so screen reader users understand where the link leads (update `href` accordingly).
+
+### Performance
+- `Hero` uses `next/image` with the `fill` prop and `priority` to preload the above-the-fold image eagerly, avoiding layout shift and slow LCP.
+- The image URL includes a `?width=2400` query parameter for Next.js image optimisation. Adjust this value if the hero is used in a narrower context.
+- `Hero` is a Server Component (no `"use client"` directive). Keep it that way — it has no interactivity.
+
+---
+
+## Common Patterns
+
+### Pattern 1: Full page layout with Hero
+
+```tsx
+// app/page.tsx
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <Hero />
+      <main>{/* content */}</main>
+      <Footer />
+    </div>
+  );
+}
+```
+
+### Pattern 2: Making Hero configurable (future extension)
+
+If the hero content needs to vary per page, extract the hard-coded values into props:
+
+```tsx
+interface HeroProps {
+  title: string;
+  ctaLabel: string;
+  ctaHref: string;
+  imageSrc: string;
+}
+
+export default function Hero({ title, ctaLabel, ctaHref, imageSrc }: HeroProps) {
+  // ...
+}
+```
