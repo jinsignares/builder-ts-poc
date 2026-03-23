@@ -1,0 +1,253 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 2px 4px 12px 0 rgba(95, 99, 104, 0.16),
+    0 8px 32px 0 rgba(95, 99, 104, 0.04);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoImage {
+  width: 180px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Desktop nav */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 4px 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--brand-teal-dark);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.navLink:hover {
+  opacity: 0.75;
+}
+
+.navLinkPlain {
+  padding: 4px 8px;
+}
+
+/* Desktop CTA buttons */
+.desktopActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.signInBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--brand-teal-40);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.signInBtn:hover {
+  opacity: 0.75;
+}
+
+.bookDemoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: var(--brand-gold-50);
+  color: var(--brand-teal-20);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.bookDemoBtn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburgerBar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--brand-teal-dark);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburgerBar--top-open {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerBar--mid-open {
+  opacity: 0;
+}
+
+.hamburgerBar--bot-open {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu panel */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 32px;
+  background: #fff;
+  border-top: 1px solid rgba(20, 88, 81, 0.12);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileNavLink {
+  color: var(--brand-teal-dark);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.mobileNavLink:hover {
+  opacity: 0.75;
+}
+
+.mobileActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileSignIn {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  color: var(--brand-teal-40);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+}
+
+.mobileBookDemo {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: var(--brand-gold-50);
+  color: var(--brand-teal-20);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.16px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.mobileBookDemo:hover {
+  opacity: 0.9;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .desktopNav,
+  .desktopActions {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .mobileMenu--hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileMenu {
+    display: none !important;
+  }
+}

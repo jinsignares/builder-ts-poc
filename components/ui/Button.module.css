@@ -1,0 +1,49 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+/* Sizes */
+.sm {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+.md {
+  height: 40px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+
+/* Variants */
+.gold {
+  background: var(--brand-gold-50);
+  color: var(--brand-teal-20);
+}
+
+.teal {
+  background: var(--brand-teal-40);
+  color: #fff;
+}
+
+.outline {
+  background: transparent;
+  border: 1.5px solid var(--brand-teal-40);
+  color: var(--brand-teal-40);
+}

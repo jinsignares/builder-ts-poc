@@ -3,6 +3,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand color tokens */
+  --brand-teal-10: #0A2C29;
+  --brand-teal-20: #0E3F3A;
+  --brand-teal-dark: #145851;
+  --brand-teal-40: #1C7E74;
+  --brand-teal-light: #DFEDEC;
+  --brand-teal-faint: #EFF6F5;
+  --brand-teal-pale: #BFDBD8;
+  --brand-gold-50: #F6B725;
+  --brand-gold-90: #FEF8E9;
+  --brand-gray-30: #595F5E;
+  --brand-gray-50: #949E9C;
+  --brand-gray-border: #BFC5C4;
+  --brand-footer-bg: #202020;
+
+  /* Spacing tokens */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+
+  /* Typography */
+  --font-urbanist: 'Urbanist', sans-serif;
 }
 
 @theme inline {

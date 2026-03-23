@@ -1,0 +1,212 @@
+.footer {
+  background: var(--brand-teal-20);
+  width: 100%;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  padding: 48px 138px;
+  gap: 108px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Brand column */
+.brandCol {
+  display: flex;
+  width: 284px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.searchSocial {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  align-self: stretch;
+}
+
+.searchBar {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--brand-teal-dark);
+  background: #fafafa;
+  cursor: text;
+}
+
+.searchPlaceholder {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: var(--brand-teal-dark);
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.socialLink:hover {
+  opacity: 0.8;
+}
+
+/* Nav grid */
+.navGrid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.navHeading {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.16px;
+  color: #fff;
+  padding: 4px 8px;
+}
+
+.navHeadingSpaced {
+  margin-top: 20px;
+}
+
+.navLink {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.navLink:hover {
+  opacity: 0.8;
+}
+
+/* SOC badge */
+.socBadge {
+  margin-top: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a8d8ea 0%, #5bb8d4 40%, #2196a8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #7ecfe0;
+}
+
+.socBadgeInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1px;
+  padding: 6px;
+}
+
+.socAicpa {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.socSoc {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1;
+}
+
+.socUrl {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 400;
+  font-size: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1;
+}
+
+.socTagline {
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-weight: 400;
+  font-size: 5.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    padding: 48px;
+    gap: 48px;
+  }
+
+  .brandCol {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .brandCol {
+    width: 100%;
+  }
+
+  .navGrid {
+    flex-wrap: wrap;
+    gap: 24px 0;
+  }
+
+  .navCol {
+    flex: 0 0 50%;
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navCol {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,155 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 235px;
+  background: var(--brand-gold-90);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Content: accordion + screenshot side by side */
+.contentArea {
+  display: flex;
+  align-items: flex-start;
+  gap: 55px;
+  align-self: stretch;
+}
+
+/* Accordion column */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 0 0 480px;
+  width: 480px;
+}
+
+.accordionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accordionItemActive {
+  gap: 16px;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.accordionTitle {
+  flex: 1;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: normal;
+  color: var(--brand-gray-50);
+  transition: color 0.2s ease;
+}
+
+.accordionTitle[data-state="active"] {
+  color: var(--brand-teal-10);
+}
+
+.accordionHeader:hover .accordionTitle[data-state="inactive"] {
+  color: var(--brand-teal-40);
+}
+
+.accordionBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.accordionDescription {
+  color: var(--brand-gray-30);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 0;
+}
+
+.divider {
+  height: 2px;
+  background: var(--brand-gray-border);
+  border-radius: 1px;
+}
+
+/* Screenshot column */
+.screenshotWrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 27px;
+  overflow: hidden;
+}
+
+.screenshot {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 193 / 149;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--space-xl) 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 60px 48px;
+  }
+
+  .accordion {
+    flex: 0 0 400px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 24px;
+  }
+
+  .contentArea {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .accordion {
+    flex: unset;
+    width: 100%;
+  }
+
+  .accordionTitle {
+    font-size: 20px;
+  }
+
+  .screenshotWrapper {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .screenshot {
+    max-width: 100%;
+  }
+}

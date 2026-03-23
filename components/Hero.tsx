@@ -1,17 +1,20 @@
 import styles from "./Hero.module.css";
 
-/**
- * Full-width hero banner for the TeamSense homepage.
- *
- * Displays the "Automated, Text-First Absence Reporting at Your Fingertips"
- * headline with CTA buttons and an interactive product illustration showing
- * the employee/supervisor messaging flow and dashboard mockup.
- *
- * No props — all content is hard-coded. Place directly below `<Navbar />`.
- *
- * @see design-system-docs/Hero.mdx for full usage guidelines.
- */
-export default function Hero() {
+interface HeroProps {
+  subtitle?: string;
+  ctaDemoText?: string;
+  ctaDemoHref?: string;
+  ctaTourText?: string;
+  ctaTourHref?: string;
+}
+
+export default function Hero({
+  subtitle = "TeamSense meets employees where they are, in their native language, with no training required. Employees call off via text, and the system takes care of the rest.",
+  ctaDemoText = "Book a Demo",
+  ctaDemoHref = "#",
+  ctaTourText = "Take a Tour",
+  ctaTourHref = "#",
+}: HeroProps) {
   return (
     <section className={styles.hero}>
       {/* Text content */}
@@ -22,14 +25,11 @@ export default function Hero() {
             <span className={styles.titleGold}>Text-First Absence</span>
             <span className={styles.titleWhite}> Reporting at Your Fingertips</span>
           </h1>
-          <p className={styles.heroSubtitle}>
-            TeamSense meets employees where they are, in their native language, with no training
-            required. Employees call off via text, and the system takes care of the rest.
-          </p>
+          <p className={styles.heroSubtitle}>{subtitle}</p>
         </div>
         <div className={styles.ctaButtons}>
-          <a href="#" className={styles.btnDemo}>Book a Demo</a>
-          <a href="#" className={styles.btnTour}>Take a Tour</a>
+          <a href={ctaDemoHref} className={styles.btnDemo}>{ctaDemoText}</a>
+          <a href={ctaTourHref} className={styles.btnTour}>{ctaTourText}</a>
         </div>
       </div>
 
