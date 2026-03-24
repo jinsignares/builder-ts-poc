@@ -1,0 +1,103 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1166px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cardsGrid {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.roleCard {
+  display: flex;
+  flex: 1;
+  padding: 40px 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 24px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.roleTitle {
+  color: var(--brand-teal-10, #0A2C29);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0;
+}
+
+.roleDescription {
+  color: var(--brand-gray-40---Input-Outline, #767E7D);
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 0;
+  align-self: stretch;
+}
+
+.imageArea {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 24px;
+  background: var(--brand-gray-80---Outline-Standard, #DFE2E1);
+}
+
+.roleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.imagePlaceholder {
+  width: 239px;
+  color: var(--brand-gray-50, #949E9C);
+  text-align: center;
+  font-family: var(--font-urbanist), Urbanist, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+@media (max-width: 1024px) {
+  .roleCard {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsGrid {
+    flex-direction: column;
+  }
+
+  .roleCard {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .roleTitle {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}

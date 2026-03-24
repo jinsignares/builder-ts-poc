@@ -258,6 +258,92 @@ Builder.registerComponent(
   }
 );
 
+Builder.registerComponent(
+  dynamic(() => import("./components/RolesSection")),
+  {
+    name: "RolesSection",
+    description:
+      "Role-based feature cards section — 'Designed for every role' with Manufacturing, HR, and Operations cards.",
+    inputs: [
+      {
+        name: "heading",
+        type: "string",
+        defaultValue: "Designed for every role",
+        helperText: "Section heading.",
+      },
+      {
+        name: "subheading",
+        type: "longText",
+        defaultValue:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        helperText: "Subtitle beneath the section heading.",
+      },
+      {
+        name: "roles",
+        type: "list",
+        defaultValue: [
+          {
+            title: "Manufacturing",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            imageUrl: "",
+            imageAlt: "Graphic representing manufacturing",
+            accentColor: "#EFF6F5",
+          },
+          {
+            title: "Human Resources",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            imageUrl: "",
+            imageAlt: "Graphic representing hr",
+            accentColor: "#FEF8E9",
+          },
+          {
+            title: "Operations",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            imageUrl: "",
+            imageAlt: "Graphic representing ops",
+            accentColor: "#FDE3D3",
+          },
+        ],
+        subFields: [
+          {
+            name: "title",
+            type: "string",
+            defaultValue: "Role title",
+            helperText: "Card heading (e.g. Manufacturing, Human Resources).",
+          },
+          {
+            name: "description",
+            type: "longText",
+            defaultValue: "Role description goes here.",
+            helperText: "Body text describing this role's use case.",
+          },
+          {
+            name: "imageUrl",
+            type: "file",
+            allowedFileTypes: ["jpeg", "jpg", "png", "webp", "svg"],
+            helperText: "Optional illustration or graphic for this role.",
+          },
+          {
+            name: "imageAlt",
+            type: "string",
+            defaultValue: "Role graphic",
+            helperText: "Alt text for the role image.",
+          },
+          {
+            name: "accentColor",
+            type: "color",
+            defaultValue: "#EFF6F5",
+            helperText: "Background color of the card.",
+          },
+        ],
+      },
+    ],
+  }
+);
+
 // Register brand design tokens so they are available in the Builder.io visual editor
 Builder.register("editor.settings", {
   designTokens: {
