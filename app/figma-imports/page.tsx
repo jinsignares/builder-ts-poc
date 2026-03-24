@@ -4,6 +4,8 @@ import { RenderBuilderContent } from "../../components/builder";
 // Builder Public API Key set in .env file
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{
     page: string[];

@@ -3,6 +3,8 @@ import { RenderBuilderContent } from "../../components/builder";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{
     page: string[];
@@ -22,15 +24,4 @@ export default async function Page(props: PageProps) {
     .toPromise();
 
   return <RenderBuilderContent content={content} model="page" />;
-}
-
-export async function generateStaticParams() {
-  const pages = await builder.getAll("page", {
-    options: { noTargeting: true },
-    apiKey: process.env.NEXT_PUBLIC_BUILDER_API_KEY,
-  });
-
-  return pages.map((page) => ({
-    page: page.data?.url?.split("/").filter(Boolean) || [],
-  }));
 }
