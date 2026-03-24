@@ -1,5 +1,71 @@
 import styles from "./Footer.module.css";
 
+export interface FooterLink {
+  label: string;
+  href: string;
+}
+
+export interface FooterColumn {
+  heading: string;
+  links: FooterLink[];
+}
+
+export interface FooterProps {
+  columns?: FooterColumn[];
+  facebookHref?: string;
+  linkedinHref?: string;
+  youtubeHref?: string;
+}
+
+const DEFAULT_COLUMNS: FooterColumn[] = [
+  {
+    heading: "Product",
+    links: [
+      { label: "Overview", href: "#" },
+      { label: "Attendance", href: "#" },
+      { label: "Communication", href: "#" },
+      { label: "Mobile Forms", href: "#" },
+      { label: "Integrations", href: "#" },
+      { label: "TeamSense for HR", href: "#" },
+      { label: "TeamSense for Operations", href: "#" },
+      { label: "Employee Call Off", href: "#" },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { label: "Pricing", href: "#" },
+      { label: "Blog", href: "#" },
+      { label: "eBooks and Templates", href: "#" },
+      { label: "Comparisons", href: "#" },
+      { label: "Webinar", href: "#" },
+      { label: "Product FAQ", href: "#" },
+      { label: "ROI Calculator", href: "#" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About TeamSense", href: "#" },
+      { label: "Built for Manufacturing", href: "#" },
+      { label: "Careers", href: "#" },
+      { label: "Diversity & Inclusion", href: "#" },
+      { label: "News & Press", href: "#" },
+      { label: "Contact", href: "#" },
+    ],
+  },
+  {
+    heading: "Safety",
+    links: [
+      { label: "Security", href: "#" },
+      { label: "Website Privacy", href: "#" },
+      { label: "App Privacy", href: "#" },
+      { label: "App Terms of Service", href: "#" },
+      { label: "Subprocessors", href: "#" },
+    ],
+  },
+];
+
 const TeamSenseLogo = () => (
   <svg width="182" height="32" viewBox="0 0 182 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TeamSense">
     <path d="M15.9435 8.01382V27.0978H12.0616V8.01382H4.43262V4.74902H23.5725V8.01382H15.9435Z" fill="white"/>
@@ -22,7 +88,12 @@ const SearchIcon = () => (
   </svg>
 );
 
-export default function Footer() {
+export default function Footer({
+  columns = DEFAULT_COLUMNS,
+  facebookHref = "#",
+  linkedinHref = "#",
+  youtubeHref = "#",
+}: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -37,12 +108,12 @@ export default function Footer() {
             </div>
 
             <div className={styles.socialLinks}>
-              <a href="#" aria-label="Facebook" className={styles.socialLink}>
+              <a href={facebookHref} aria-label="Facebook" className={styles.socialLink}>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
                   <path d="M15.5996 2.40039C7.86769 2.40039 1.59961 8.66847 1.59961 16.4004C1.59961 22.9658 6.11993 28.4751 12.2178 29.9882V20.6788H9.33097V16.4004H12.2178V14.5569C12.2178 9.79183 14.3743 7.58319 19.0526 7.58319C19.9396 7.58319 21.4701 7.75735 22.0962 7.93095V11.809C21.7658 11.7742 21.1918 11.7569 20.4789 11.7569C18.1835 11.7569 17.2964 12.6266 17.2964 14.8873V16.4004H21.8694L21.0837 20.6788H17.2964V30.2979C24.2286 29.4607 29.6002 23.5583 29.6002 16.4004C29.5996 8.66847 23.3315 2.40039 15.5996 2.40039Z" fill="white"/>
                 </svg>
               </a>
-              <a href="#" aria-label="LinkedIn" className={styles.socialLink}>
+              <a href={linkedinHref} aria-label="LinkedIn" className={styles.socialLink}>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
                   <g clipPath="url(#footer-linkedin)">
                     <path d="M29.2273 2H2.06719C0.924219 2 0 2.902344 0 4.01797V27.9766C0 29.0922 0.924219 30 2.06719 30H29.9273C31.0703 30 32 29.0922 32 27.982V4.01797C32 2.902344 31.0703 2 29.9273 2H29.2273ZM9.30703 25.8602H5.15078V12.4945H9.30703V25.8602ZM7.22891 10.6734C5.89453 10.6734 4.81719 9.59609 4.81719 8.26719C4.81719 6.93828 5.89453 5.86094 7.22891 5.86094C8.55781 5.86094 9.63516 6.93828 9.63516 8.26719C9.63516 9.59063 8.55781 10.6734 7.22891 10.6734ZM26.8602 25.8602H22.7094V19.3633C22.7094 17.8156 22.682 15.8195 20.5492 15.8195C18.3891 15.8195 18.0609 17.5094 18.0609 19.2539V25.8602H13.9156V12.4945H17.8969V14.3211H17.9516C18.5039 13.2711 19.8602 12.1609 21.8781 12.1609C26.0836 12.1609 26.8602 14.9281 26.8602 18.5266V25.8602Z" fill="white"/>
@@ -52,7 +123,7 @@ export default function Footer() {
                   </defs>
                 </svg>
               </a>
-              <a href="#" aria-label="YouTube" className={styles.socialLink}>
+              <a href={youtubeHref} aria-label="YouTube" className={styles.socialLink}>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
                   <path d="M30.1215 10.6496C30.1215 10.6496 29.848 8.71914 29.0059 7.87148C27.9395 6.75586 26.7473 6.75039 26.2004 6.68477C22.2848 6.40039 16.4059 6.40039 16.4059 6.40039H16.3949C16.3949 6.40039 10.516 6.40039 6.60039 6.68477C6.05352 6.75039 4.86133 6.75586 3.79492 7.87148C2.95273 8.71914 2.68477 10.6496 2.68477 10.6496C2.68477 10.6496 2.40039 12.9191 2.40039 15.1832V17.3051C2.40039 19.5691 2.6793 21.8387 2.6793 21.8387C2.6793 21.8387 2.95273 23.7691 3.78945 24.6168C4.85586 25.7324 6.25586 25.6941 6.8793 25.8145C9.12148 26.0277 16.4004 26.0934 16.4004 26.0934C16.4004 26.0934 22.2848 26.0824 26.2004 25.8035C26.7473 25.7379 27.9395 25.7324 29.0059 24.6168C29.848 23.7691 30.1215 21.8387 30.1215 21.8387C30.1215 21.8387 30.4004 19.5746 30.4004 17.3051V15.1832C30.4004 12.9191 30.1215 10.6496 30.1215 10.6496ZM13.5074 19.8809V12.0113L21.0707 15.9598L13.5074 19.8809Z" fill="white"/>
                 </svg>
@@ -63,60 +134,16 @@ export default function Footer() {
 
         {/* Nav link columns */}
         <nav className={styles.navGrid} aria-label="Footer navigation">
-          <div className={styles.navCol}>
-            <span className={styles.navHeading}>Product</span>
-            <a href="#" className={styles.navLink}>Overview</a>
-            <a href="#" className={styles.navLink}>Attendance</a>
-            <a href="#" className={styles.navLink}>Communication</a>
-            <a href="#" className={styles.navLink}>Mobile Forms</a>
-            <a href="#" className={styles.navLink}>Integrations</a>
-            <a href="#" className={styles.navLink}>TeamSense for HR</a>
-            <a href="#" className={styles.navLink}>TeamSense for Operations</a>
-            <a href="#" className={styles.navLink}>Employee Call Off</a>
-          </div>
-
-          <div className={styles.navCol}>
-            <span className={styles.navHeading}>Resources</span>
-            <a href="#" className={styles.navLink}>Pricing</a>
-            <a href="#" className={styles.navLink}>Blog</a>
-            <a href="#" className={styles.navLink}>eBooks and Templates</a>
-            <a href="#" className={styles.navLink}>Comparisons</a>
-            <a href="#" className={styles.navLink}>Webinar</a>
-            <a href="#" className={styles.navLink}>Product FAQ</a>
-            <a href="#" className={styles.navLink}>ROI Calculator</a>
-          </div>
-
-          <div className={styles.navCol}>
-            <span className={styles.navHeading}>Company</span>
-            <a href="#" className={styles.navLink}>About TeamSense</a>
-            <a href="#" className={styles.navLink}>Built for Manufacturing</a>
-            <a href="#" className={styles.navLink}>Careers</a>
-            <a href="#" className={styles.navLink}>Diversity &amp; Inclusion</a>
-            <a href="#" className={styles.navLink}>News &amp; Press</a>
-            <a href="#" className={styles.navLink}>Contact</a>
-            <span className={`${styles.navHeading} ${styles.navHeadingSpaced}`}>Support</span>
-            <a href="#" className={styles.navLink}>Help Center</a>
-            <a href="#" className={styles.navLink}>Report an Absence</a>
-            <a href="#" className={styles.navLink}>System Status</a>
-          </div>
-
-          <div className={styles.navCol}>
-            <span className={styles.navHeading}>Safety</span>
-            <a href="#" className={styles.navLink}>Security</a>
-            <a href="#" className={styles.navLink}>Website Privacy</a>
-            <a href="#" className={styles.navLink}>App Privacy</a>
-            <a href="#" className={styles.navLink}>App Terms of Service</a>
-            <a href="#" className={styles.navLink}>Subprocessors</a>
-
-            <div className={styles.socBadge} aria-label="AICPA SOC certified">
-              <div className={styles.socBadgeInner}>
-                <span className={styles.socAicpa}>AICPA</span>
-                <span className={styles.socSoc}>SOC</span>
-                <span className={styles.socUrl}>aicpa.org/soc4so</span>
-                <span className={styles.socTagline}>Service Organization</span>
-              </div>
+          {columns.map((col) => (
+            <div key={col.heading} className={styles.navCol}>
+              <span className={styles.navHeading}>{col.heading}</span>
+              {col.links.map((link) => (
+                <a key={link.label} href={link.href} className={styles.navLink}>
+                  {link.label}
+                </a>
+              ))}
             </div>
-          </div>
+          ))}
         </nav>
       </div>
     </footer>

@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v5039_4110 {
+  width: 665px;
+  height: 528px;
+  background: rgba(238,240,240,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v5039_4111 {
+  width: 532px;
+  height: 452px;
+  background: url("../images/v5039_4111.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 20px;
+  opacity: 1;
+  position: absolute;
+  top: 73px;
+  left: 67px;
+  overflow: hidden;
+}
+.v5039_4112 {
+  width: 532px;
+  color: rgba(0,0,0,1);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-family: Urbanist;
+  font-weight: ExtraBold;
+  font-size: 48px;
+  opacity: 1;
+  text-align: left;
+}
+.v5039_4113 {
+  width: 517px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 78px;
+  left: 0px;
+  font-family: Urbanist;
+  font-weight: Bold;
+  font-size: 18px;
+  opacity: 1;
+  text-align: left;
+}

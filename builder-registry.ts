@@ -22,36 +22,16 @@ Builder.registerComponent(
     description: "TeamSense homepage hero — headline, CTA buttons, and product illustration.",
     inputs: [
       {
-        name: "subtitle",
-        type: "longText",
+        name: "headlineHtml",
+        type: "richText",
         defaultValue:
-          "TeamSense meets employees where they are, in their native language, with no training required. Employees call off via text, and the system takes care of the rest.",
-        helperText: "Subtitle text shown beneath the hero headline.",
+          '<h1>Automated, <span style="color:#F6B725;">Text-First Absence</span> Reporting at Your Fingertips</h1><p>TeamSense meets employees where they are, in their native language, with no training required. Employees call off via text, and the system takes care of the rest.</p>',
+        helperText: "Hero headline and subtitle. Typography styles are applied automatically via CSS.",
       },
-      {
-        name: "ctaDemoText",
-        type: "string",
-        defaultValue: "Book a Demo",
-        helperText: "Label for the primary CTA button.",
-      },
-      {
-        name: "ctaDemoHref",
-        type: "string",
-        defaultValue: "#",
-        helperText: "URL for the primary CTA button.",
-      },
-      {
-        name: "ctaTourText",
-        type: "string",
-        defaultValue: "Take a Tour",
-        helperText: "Label for the secondary CTA button.",
-      },
-      {
-        name: "ctaTourHref",
-        type: "string",
-        defaultValue: "#",
-        helperText: "URL for the secondary CTA button.",
-      },
+      { name: "ctaDemoText", type: "text", defaultValue: "Book a Demo" },
+      { name: "ctaDemoHref", type: "text", defaultValue: "#" },
+      { name: "ctaTourText", type: "text", defaultValue: "Take a Tour" },
+      { name: "ctaTourHref", type: "text", defaultValue: "#" },
     ],
   }
 );
@@ -61,6 +41,83 @@ Builder.registerComponent(
   {
     name: "Navbar",
     description: "Sticky top navigation bar with logo, nav links, and CTA buttons.",
+    inputs: [
+      {
+        name: "logoUrl",
+        type: "file",
+        allowedFileTypes: ["jpeg", "jpg", "png", "webp", "svg"],
+        defaultValue:
+          "https://api.builder.io/api/v1/image/assets/TEMP/a3ff7de3889e43a68ed3513edf11d104943f4cb2?width=359",
+        helperText: "Brand logo image.",
+      },
+      {
+        name: "logoAlt",
+        type: "text",
+        defaultValue: "TeamSense",
+        helperText: "Alt text for the logo.",
+      },
+      {
+        name: "logoHref",
+        type: "text",
+        defaultValue: "/",
+        helperText: "URL the logo links to.",
+      },
+      {
+        name: "navLinks",
+        type: "list",
+        defaultValue: [
+          { label: "Product", href: "#", hasDropdown: true },
+          { label: "Why TeamSense", href: "#", hasDropdown: true },
+          { label: "Resources", href: "#", hasDropdown: true },
+          { label: "Pricing", href: "#", hasDropdown: false },
+        ],
+        subFields: [
+          {
+            name: "label",
+            type: "text",
+            defaultValue: "Nav item",
+            helperText: "Link display text.",
+          },
+          {
+            name: "href",
+            type: "text",
+            defaultValue: "#",
+            helperText: "Link URL.",
+          },
+          {
+            name: "hasDropdown",
+            type: "boolean",
+            defaultValue: false,
+            helperText: "Show a dropdown caret icon next to this link.",
+          },
+        ],
+        helperText: "Navigation links shown in the top bar.",
+      },
+      {
+        name: "signInText",
+        type: "text",
+        defaultValue: "Sign in",
+        helperText: "Label for the sign-in link.",
+      },
+      {
+        name: "signInHref",
+        type: "text",
+        defaultValue: "#",
+        helperText: "URL for the sign-in link.",
+      },
+      {
+        name: "ctaText",
+        type: "text",
+        defaultValue: "Book a Demo",
+        helperText: "Label for the primary CTA button.",
+      },
+      {
+        name: "ctaHref",
+        type: "text",
+        defaultValue: "#",
+        helperText: "URL for the primary CTA button.",
+      },
+    ],
   }
 );
 
@@ -69,6 +126,100 @@ Builder.registerComponent(
   {
     name: "Footer",
     description: "Site footer with brand logo, social links, search bar, and navigation columns.",
+    inputs: [
+      {
+        name: "facebookHref",
+        type: "text",
+        defaultValue: "#",
+        helperText: "Facebook profile URL.",
+      },
+      {
+        name: "linkedinHref",
+        type: "text",
+        defaultValue: "#",
+        helperText: "LinkedIn profile URL.",
+      },
+      {
+        name: "youtubeHref",
+        type: "text",
+        defaultValue: "#",
+        helperText: "YouTube channel URL.",
+      },
+      {
+        name: "columns",
+        type: "list",
+        defaultValue: [
+          {
+            heading: "Product",
+            links: [
+              { label: "Overview", href: "#" },
+              { label: "Attendance", href: "#" },
+              { label: "Communication", href: "#" },
+              { label: "Mobile Forms", href: "#" },
+              { label: "Integrations", href: "#" },
+            ],
+          },
+          {
+            heading: "Resources",
+            links: [
+              { label: "Pricing", href: "#" },
+              { label: "Blog", href: "#" },
+              { label: "eBooks and Templates", href: "#" },
+              { label: "Webinar", href: "#" },
+              { label: "ROI Calculator", href: "#" },
+            ],
+          },
+          {
+            heading: "Company",
+            links: [
+              { label: "About TeamSense", href: "#" },
+              { label: "Careers", href: "#" },
+              { label: "Diversity & Inclusion", href: "#" },
+              { label: "News & Press", href: "#" },
+              { label: "Contact", href: "#" },
+            ],
+          },
+          {
+            heading: "Safety",
+            links: [
+              { label: "Security", href: "#" },
+              { label: "Website Privacy", href: "#" },
+              { label: "App Privacy", href: "#" },
+              { label: "App Terms of Service", href: "#" },
+              { label: "Subprocessors", href: "#" },
+            ],
+          },
+        ],
+        subFields: [
+          {
+            name: "heading",
+            type: "text",
+            defaultValue: "Column heading",
+            helperText: "Footer column title.",
+          },
+          {
+            name: "links",
+            type: "list",
+            subFields: [
+              {
+                name: "label",
+                type: "text",
+                defaultValue: "Link label",
+                helperText: "Link display text.",
+              },
+              {
+                name: "href",
+                type: "text",
+                defaultValue: "#",
+                helperText: "Link URL.",
+              },
+            ],
+            helperText: "Links within this column.",
+          },
+        ],
+        helperText: "Footer navigation columns (heading + links).",
+      },
+    ],
   }
 );
 
@@ -344,9 +495,21 @@ Builder.registerComponent(
   }
 );
 
-// Register brand design tokens so they are available in the Builder.io visual editor
+// Register brand design tokens and typography so they are available in the Builder.io visual editor
 Builder.register("editor.settings", {
   designTokens: {
+    fontFamily: [
+      { name: "Urbanist", value: "Urbanist, sans-serif" },
+    ],
+    fontSize: [
+      { name: "H1 — 48px", value: "48px" },
+      { name: "H2 — 32px", value: "32px" },
+      { name: "H3 — 24px", value: "24px" },
+      { name: "H4 — 20px", value: "20px" },
+      { name: "H5 — 16px", value: "16px" },
+      { name: "Body — 18px", value: "18px" },
+      { name: "Small — 14px", value: "14px" },
+    ],
     colors: [
       { name: "White", value: "#FFFFFF" },
       { name: "Brand Teal 10", value: "#0A2C29" },

@@ -1,7 +1,11 @@
 import styles from "./Hero.module.css";
 
-interface HeroProps {
-  subtitle?: string;
+const DEFAULT_HEADLINE_HTML =
+  '<h1>Automated, <span style="color:#F6B725;">Text-First Absence</span> Reporting at Your Fingertips</h1>' +
+  '<p>TeamSense meets employees where they are, in their native language, with no training required. Employees call off via text, and the system takes care of the rest.</p>';
+
+export interface HeroProps {
+  headlineHtml?: string;
   ctaDemoText?: string;
   ctaDemoHref?: string;
   ctaTourText?: string;
@@ -9,7 +13,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  subtitle = "TeamSense meets employees where they are, in their native language, with no training required. Employees call off via text, and the system takes care of the rest.",
+  headlineHtml = DEFAULT_HEADLINE_HTML,
   ctaDemoText = "Book a Demo",
   ctaDemoHref = "#",
   ctaTourText = "Take a Tour",
@@ -19,14 +23,10 @@ export default function Hero({
     <section className={styles.hero}>
       {/* Text content */}
       <div className={styles.heroContent}>
-        <div className={styles.headlines}>
-          <h1 className={styles.heroTitle}>
-            <span className={styles.titleWhite}>Automated, </span>
-            <span className={styles.titleGold}>Text-First Absence</span>
-            <span className={styles.titleWhite}> Reporting at Your Fingertips</span>
-          </h1>
-          <p className={styles.heroSubtitle}>{subtitle}</p>
-        </div>
+        <div
+          className={styles.headlines}
+          dangerouslySetInnerHTML={{ __html: headlineHtml }}
+        />
         <div className={styles.ctaButtons}>
           <a href={ctaDemoHref} className={styles.btnDemo}>{ctaDemoText}</a>
           <a href={ctaTourHref} className={styles.btnTour}>{ctaTourText}</a>

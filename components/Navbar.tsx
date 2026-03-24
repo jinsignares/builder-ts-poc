@@ -14,39 +14,67 @@ const CaretIcon = () => (
   </svg>
 );
 
-const NAV_LINKS = ["Product", "Why TeamSense", "Resources"];
+export interface NavLink {
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+}
 
-export default function Navbar() {
+export interface NavbarProps {
+  logoUrl?: string;
+  logoAlt?: string;
+  logoHref?: string;
+  navLinks?: NavLink[];
+  signInText?: string;
+  signInHref?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const DEFAULT_NAV_LINKS: NavLink[] = [
+  { label: "Product", href: "#", hasDropdown: true },
+  { label: "Why TeamSense", href: "#", hasDropdown: true },
+  { label: "Resources", href: "#", hasDropdown: true },
+  { label: "Pricing", href: "#", hasDropdown: false },
+];
+
+export default function Navbar({
+  logoUrl = "https://api.builder.io/api/v1/image/assets/TEMP/a3ff7de3889e43a68ed3513edf11d104943f4cb2?width=359",
+  logoAlt = "TeamSense",
+  logoHref = "#",
+  navLinks = DEFAULT_NAV_LINKS,
+  signInText = "Sign in",
+  signInHref = "#",
+  ctaText = "Book a Demo",
+  ctaHref = "#",
+}: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
         {/* Logo */}
-        <a href="#" className={styles.logo}>
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/a3ff7de3889e43a68ed3513edf11d104943f4cb2?width=359"
-            alt="TeamSense"
-            className={styles.logoImage}
-          />
+        <a href={logoHref} className={styles.logo}>
+          <img src={logoUrl} alt={logoAlt} className={styles.logoImage} />
         </a>
 
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Main navigation">
-          {NAV_LINKS.map((label) => (
-            <a key={label} href="#" className={styles.navLink}>
-              {label} <CaretIcon />
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`${styles.navLink} ${link.hasDropdown ? "" : styles.navLinkPlain}`}
+            >
+              {link.label} {link.hasDropdown && <CaretIcon />}
             </a>
           ))}
-          <a href="#" className={`${styles.navLink} ${styles.navLinkPlain}`}>
-            Pricing
-          </a>
         </nav>
 
         {/* Desktop CTA buttons */}
         <div className={styles.desktopActions}>
-          <a href="#" className={styles.signInBtn}>Sign in</a>
-          <a href="#" className={styles.bookDemoBtn}>Book a Demo</a>
+          <a href={signInHref} className={styles.signInBtn}>{signInText}</a>
+          <a href={ctaHref} className={styles.bookDemoBtn}>{ctaText}</a>
         </div>
 
         {/* Mobile hamburger */}
@@ -65,23 +93,23 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? "" : styles["mobileMenu--hidden"]}`}>
         <nav className={styles.mobileNav} aria-label="Mobile navigation">
-          {[...NAV_LINKS, "Pricing"].map((label) => (
+          {navLinks.map((link) => (
             <a
-              key={label}
-              href="#"
+              key={link.label}
+              href={link.href}
               className={styles.mobileNavLink}
               onClick={() => setMenuOpen(false)}
             >
-              {label}
+              {link.label}
             </a>
           ))}
         </nav>
         <div className={styles.mobileActions}>
-          <a href="#" className={styles.mobileSignIn} onClick={() => setMenuOpen(false)}>
-            Sign in
+          <a href={signInHref} className={styles.mobileSignIn} onClick={() => setMenuOpen(false)}>
+            {signInText}
           </a>
-          <a href="#" className={styles.mobileBookDemo} onClick={() => setMenuOpen(false)}>
-            Book a Demo
+          <a href={ctaHref} className={styles.mobileBookDemo} onClick={() => setMenuOpen(false)}>
+            {ctaText}
           </a>
         </div>
       </div>
