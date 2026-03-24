@@ -6,21 +6,15 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 export const dynamic = "force-dynamic";
 
-interface PageProps {
-  params: Promise<{
-    page: string[];
-  }>;
-}
-
-export default async function Page(props: PageProps) {
+export default async function Page() {
   const builderModelName = "figma-imports";
 
   const content = await builder
     // Get the page content from Builder with the specified options
     .get(builderModelName, {
       userAttributes: {
-        // Use the page path specified in the URL to fetch the content
-        urlPath: "/" + ((await props?.params)?.page?.join("/") || ""),
+        // Use this route path to fetch the content for this model
+        urlPath: "/figma-imports",
       },
     })
     // Convert the result to a promise
