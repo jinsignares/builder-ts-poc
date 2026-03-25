@@ -66,10 +66,32 @@ Builder.registerComponent(
         name: "navLinks",
         type: "list",
         defaultValue: [
-          { label: "Product", href: "#", hasDropdown: true },
-          { label: "Why TeamSense", href: "#", hasDropdown: true },
-          { label: "Resources", href: "#", hasDropdown: true },
-          { label: "Pricing", href: "#", hasDropdown: false },
+          {
+            label: "Product",
+            children: [
+              { label: "Attendance", href: "#" },
+              { label: "Messaging", href: "#" },
+              { label: "Integrations", href: "#" },
+            ],
+          },
+          {
+            label: "Resources",
+            children: [
+              {
+                label: "Resources",
+                linkDescription: "Educational content, tools, and customer stories.",
+              },
+              {
+                label: "Learn",
+                shortLabel: "LEARN",
+                children: [
+                  { label: "Blog", href: "/blog" },
+                  { label: "Case Studies", href: "/case-studies" },
+                ],
+              },
+            ],
+          },
+          { label: "Pricing", href: "/pricing" },
         ],
         subFields: [
           {
@@ -85,13 +107,87 @@ Builder.registerComponent(
             helperText: "Link URL.",
           },
           {
-            name: "hasDropdown",
+            name: "noFollow",
             type: "boolean",
             defaultValue: false,
-            helperText: "Show a dropdown caret icon next to this link.",
+            helperText: "If true, adds rel=nofollow.",
+          },
+          {
+            name: "openInNewTab",
+            type: "boolean",
+            defaultValue: false,
+            helperText: "Open this link in a new tab.",
+          },
+          {
+            name: "linkDescription",
+            type: "text",
+            helperText: "Optional descriptive text (used in dropdown groups).",
+          },
+          {
+            name: "shortLabel",
+            type: "text",
+            helperText: "Optional short uppercase label for grouped submenu sections.",
+          },
+          {
+            name: "children",
+            type: "list",
+            helperText: "Second-level menu items.",
+            subFields: [
+              {
+                name: "label",
+                type: "text",
+                defaultValue: "Sub item",
+              },
+              {
+                name: "href",
+                type: "text",
+                defaultValue: "#",
+              },
+              {
+                name: "linkDescription",
+                type: "text",
+              },
+              {
+                name: "shortLabel",
+                type: "text",
+              },
+              {
+                name: "children",
+                type: "list",
+                helperText: "Third-level menu items.",
+                subFields: [
+                  {
+                    name: "label",
+                    type: "text",
+                    defaultValue: "Nested item",
+                  },
+                  {
+                    name: "href",
+                    type: "text",
+                    defaultValue: "#",
+                  },
+                  {
+                    name: "noFollow",
+                    type: "boolean",
+                    defaultValue: false,
+                  },
+                  {
+                    name: "openInNewTab",
+                    type: "boolean",
+                    defaultValue: false,
+                  },
+                ],
+              },
+            ],
           },
         ],
         helperText: "Navigation links shown in the top bar.",
+      },
+      {
+        name: "useGlobalSettings",
+        type: "boolean",
+        defaultValue: true,
+        helperText: "When true, navbar pulls menu + CTA data from Builder model 'site-settings'.",
       },
       {
         name: "signInText",

@@ -9,6 +9,7 @@ import {
   TrackAbsences,
   Footer,
 } from "../../components";
+import type { SiteSettingsData } from "../../components/Navbar";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -22,6 +23,11 @@ interface PageProps {
 
 function getUrlPath(page?: string[]): string {
   return "/" + (page?.join("/") ?? "");
+}
+
+async function getSiteSettings(): Promise<SiteSettingsData | undefined> {
+  const content = await builder.get("site-settings").toPromise();
+  return (content?.data ?? undefined) as SiteSettingsData | undefined;
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
@@ -47,9 +53,12 @@ export default async function Page(props: PageProps) {
   const { page } = await props.params;
   const urlPath = getUrlPath(page);
 
-  const content = await builder
-    .get("page", { userAttributes: { urlPath } })
-    .toPromise();
+  const [content, siteSettingsData] = await Promise.all([
+    builder
+      .get("page", { userAttributes: { urlPath } })
+      .toPromise(),
+    getSiteSettings(),
+  ]);
 
   return (
     <RenderBuilderContent
@@ -58,7 +67,7 @@ export default async function Page(props: PageProps) {
       fallback={
         urlPath === "/" ? (
           <div className="flex min-h-screen flex-col bg-zinc-50 font-sans">
-            <Navbar />
+            <Navbar siteSettingsData={siteSettingsData} />
             <main>
               <Hero />
               <SocialProof />

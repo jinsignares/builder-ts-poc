@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "setup:builder": "node --env-file=.env scripts/setup-builder-models.mjs"
+    "setup:builder": "npm run setup:builder:page && npm run setup:builder:site-settings",
+    "setup:builder:page": "node --env-file=.env scripts/setup-builder-models.mjs",
+    "setup:builder:site-settings": "node --env-file=.env scripts/setup-site-settings-model.mjs"
   },
   "dependencies": {
     "@builder.io/dev-tools": "^1.33.4",
